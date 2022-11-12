@@ -1,0 +1,24 @@
+.BugModal {
+	position: absolute;
+	width: 80%;
+	left: 10%;
+	right: 10%;
+	top: 10%;
+	bottom: 10%;
+	display: flex;
+	flex-wrap: wrap;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+.BugModal > .BugCard {
+  font-family: sans-serif;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 120px;
+  height: 50px;
+  border-radius: 5px;
+  white-space: nowrap;
+}

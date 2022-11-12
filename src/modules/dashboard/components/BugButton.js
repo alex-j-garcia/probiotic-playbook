@@ -1,5 +1,7 @@
-export default function BugButton() {
+import Button from '../../common/Button';
+
+export default function BugButton({ handleClick }) {
   return (
-    <button>Add a bug</button>
+    <Button onClick={handleClick}>Add a bug</Button>
   );
 }
