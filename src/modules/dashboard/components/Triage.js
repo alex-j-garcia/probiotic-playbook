@@ -9,7 +9,7 @@ export default function Triage() {
     <div className='Triage troubleshooting'>
       {triage.length ?
         triage.map((item, index) => <BugCard key={index} species={item} />) :
-        <p>No items found</p>
+        null
       }
     </div>
   );
