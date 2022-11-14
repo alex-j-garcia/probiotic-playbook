@@ -1,8 +1,8 @@
-import { useModalContext } from "../../common/useModalContext";
-import BugButton from "./BugButton";
+import { useGlobalState } from '../../common/useGlobalState';
+import BugButton from './BugButton';
 
 export default function Header() {
-  const { toggleIsVisible } = useModalContext();
+  const [, { toggleIsVisible }] = useGlobalState();
 
   return (
     <header>

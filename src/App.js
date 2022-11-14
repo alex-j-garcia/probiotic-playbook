@@ -1,4 +1,4 @@
-import { ModalContextProvider } from './modules/common/useModalContext';
+import { StateContextProvider } from './modules/common/useGlobalState';
 import Overlay from './modules/common/Overlay';
 import BugModal from './modules/dashboard/components/BugModal';
 import Dashboard from './modules/dashboard/Dashboard';
@@ -6,12 +6,12 @@ import './App.css';
 
 function App() {
   return (
-    <ModalContextProvider defaultOnValue={false}>
+    <StateContextProvider>
       <Overlay>
         <BugModal />
       </Overlay>
       <Dashboard />
-    </ModalContextProvider>
+    </StateContextProvider>
   );
 }
 

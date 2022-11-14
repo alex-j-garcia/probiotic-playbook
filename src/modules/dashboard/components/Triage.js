@@ -1,14 +1,15 @@
-import BugCard from "./BugCard";
+import { useGlobalState } from '../../common/useGlobalState';
+import BugCard from './BugCard';
 import './Triage.css';
 
 export default function Triage() {
-  const data = [];
+  const [{ triage }] = useGlobalState();
 
   return (
-    <div className='Triage'>
-      {data.length ?
-        data.map((species, i) => <BugCard key={i} species={species} />) :
-        null
+    <div className='Triage troubleshooting'>
+      {triage.length ?
+        triage.map((item, index) => <BugCard key={index} species={item} />) :
+        <p>No items found</p>
       }
     </div>
   );

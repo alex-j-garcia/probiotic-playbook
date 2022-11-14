@@ -1,14 +1,14 @@
-import { useModalContext } from './useModalContext';
+import { useGlobalState } from './useGlobalState';
 import Button from './Button';
 import './Overlay.css';
 
 export default function Overlay({ children }) {
-  const { isVisible, toggleIsVisible } = useModalContext()
+  const [{ modalIsVisible }, { toggleIsVisible }] = useGlobalState();
 
-  if (!isVisible) return null;
+  if (!modalIsVisible) return null;
 
   return (
-    <div className="Overlay">
+    <div className='Overlay'>
       <header>
         <Button handleClick={toggleIsVisible}>X</Button>
       </header>
