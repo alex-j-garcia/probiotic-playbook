@@ -2,11 +2,10 @@ import './BugCard.css';
 
 export default function BugCard({
   species,
-  children,
-  handleClick
+  children = null,
 }) {
   return (
-    <div className='BugCard' onClick={() => handleClick(species)}>
+    <div className='BugCard'>
       {species.name}
       <div>
         {children}

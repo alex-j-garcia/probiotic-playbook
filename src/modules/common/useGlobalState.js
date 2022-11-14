@@ -8,11 +8,16 @@ const StateContext = createContext();
 
 function reducer(state, action) {
   switch(action.type) {
-    case 'ADD':
+    case 'ADD_TO_TRIAGE':
       return {
         ...state,
         triage: [...state.triage, action.payload],
       };
+      case 'ADD_TO_BUG_BOARD':
+        return {
+          ...state,
+          bugBoard: [...state.bugBoard, action.payload],
+        };
     case 'TOGGLE_MODAL':
       return {
         ...state,
@@ -27,10 +32,12 @@ function StateContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, {
     modalIsVisible: false,
     triage: [],
+    bugBoard: [],
   });
 
   const handlers = {
-    add: (item) => dispatch({ type: 'ADD', payload: item }),
+    addToTriage: (item) => dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
+    addToBugBoard: (item) => dispatch({ type: 'ADD_TO_BUG_BOARD', payload: item }),
     toggleIsVisible: () => dispatch({ type: 'TOGGLE_MODAL' }),
   };
 
