@@ -1,0 +1,5 @@
+.BugBoard {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 150px);
+}
