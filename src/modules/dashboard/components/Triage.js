@@ -6,15 +6,25 @@ import 'remixicon/fonts/remixicon.css';
 import './Triage.css';
 
 export default function Triage() {
-  const [{ triage }, { addToBugBoard }] = useGlobalState();
+  const [{ 
+    triage 
+  }, { 
+    addToBugBoard, 
+    removeFromTriage 
+  }] = useGlobalState();
+
+  function handleClick(item) {
+    removeFromTriage(item);
+    addToBugBoard(item);
+  }
 
   return (
     <div className='Triage troubleshooting'>
       {triage.length ?
         triage.map((item, index) => (
           <BugCard key={index} species={item}>
-            <ThumbsUpButton handleClick={() => addToBugBoard(item)} />
-            <ThumbsDownButton handleClick={() => addToBugBoard(item)} />
+            <ThumbsUpButton handleClick={() => handleClick(item)} />
+            <ThumbsDownButton handleClick={() => handleClick(item)} />
           </BugCard>
         )) :
         null
