@@ -1,3 +1,7 @@
 .troubleshooting {
   outline: 2px solid red;
 }
+
+button {
+  cursor: pointer;
+}

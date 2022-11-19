@@ -1,4 +1,5 @@
 .BugCard {
   background-color: purple;
-  color: white
+  color: white;
+  cursor: default;
 }

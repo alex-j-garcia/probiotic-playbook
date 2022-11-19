@@ -16,7 +16,6 @@ export default function Triage() {
     removeFromTriage(item);
     addToBugBoard(item);
   }
-  console.log('triage:', triage);
 
   return (
     <div className='Triage troubleshooting'>

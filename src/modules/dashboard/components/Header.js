@@ -1,12 +1,14 @@
 import { useGlobalState } from '../../common/useGlobalState';
-import BugButton from './BugButton';
+import Button from '../../common/Button';
 
 export default function Header() {
   const [, { toggleIsVisible }] = useGlobalState();
 
   return (
     <header>
-      <BugButton handleClick={toggleIsVisible} />
+      <Button handleClick={toggleIsVisible}>
+        Add a 🐛
+      </Button>
     </header>
   );
 }

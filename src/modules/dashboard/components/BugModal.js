@@ -1,7 +1,6 @@
 import { useGlobalState } from '../../common/useGlobalState';
 import BugCard from './BugCard';
 import Button from '../../common/Button';
-import 'remixicon/fonts/remixicon.css';
 import './BugModal.css';
 
 export default function BugModal() {
@@ -24,7 +23,7 @@ export default function BugModal() {
         modalList.map((species, i) => (
           <BugCard key={i} species={species}>
             <Button handleClick={() => handleClick(species)}>
-              <i className="ri-add-line"></i>
+              ➕
             </Button>
           </BugCard>
         )) :
