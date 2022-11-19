@@ -2,7 +2,6 @@ import { useGlobalState } from '../../common/useGlobalState';
 import BugCard from './BugCard';
 import ThumbsUpButton from '../../common/ThumbsUpButton';
 import ThumbsDownButton from '../../common/ThumbsDownButton';
-import 'remixicon/fonts/remixicon.css';
 import './Triage.css';
 
 export default function Triage() {
@@ -17,14 +16,19 @@ export default function Triage() {
     removeFromTriage(item);
     addToBugBoard(item);
   }
+  console.log('triage:', triage);
 
   return (
     <div className='Triage troubleshooting'>
       {triage.length ?
         triage.map((item, index) => (
           <BugCard key={index} species={item}>
-            <ThumbsUpButton handleClick={() => handleClick(item)} />
-            <ThumbsDownButton handleClick={() => handleClick(item)} />
+            <ThumbsUpButton handleClick={() => (
+              handleClick({ item, button: '👍' })
+            )} />
+            <ThumbsDownButton handleClick={() => (
+              handleClick({ item, button: '👎' })
+            )} />
           </BugCard>
         )) :
         null

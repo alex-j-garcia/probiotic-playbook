@@ -18,7 +18,7 @@ function reducer(state, { type , payload }) {
     case 'REMOVE_FROM_TRIAGE':
       return {
         ...state,
-        triage: state.triage.filter(({ name }) => name !== payload.name),
+        triage: state.triage.filter(({ name }) => name !== payload.item.name),
       };
     case 'ADD_TO_BUG_BOARD':
       return {
