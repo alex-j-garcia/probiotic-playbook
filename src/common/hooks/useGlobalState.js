@@ -1,10 +1,10 @@
+import useJsonData from './useJsonData';
 import {
   createContext,
   useContext,
   useReducer,
   useEffect,
 } from 'react';
-import useJsonData from './useJsonData';
 
 const StateContext = createContext();
 
@@ -30,10 +30,15 @@ function reducer(state, { type , payload }) {
         ...state,
         modalIsVisible: !state.modalIsVisible,
       };
-    case 'UPDATE_MODAL_LIST':
+    case 'SET_MODAL_LIST':
       return {
         ...state,
         modalList: [...payload],
+      };
+    case 'REMOVE_FROM_MODAL_LIST':
+      return {
+        ...state,
+        modalList: state.modalList.filter(item => item.name !== payload),
       };
     default:
       return state;
@@ -50,7 +55,7 @@ function StateContextProvider({ children }) {
   });
 
   useEffect(() => {
-    dispatch({ type: 'UPDATE_MODAL_LIST', payload: data });
+    dispatch({ type: 'SET_MODAL_LIST', payload: data });
   }, [data]);
 
   const handlers = {
@@ -58,12 +63,12 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
     removeFromTriage: (item) => 
       dispatch({ type: 'REMOVE_FROM_TRIAGE', payload: item }),
-    addToBugBoard: (item) => 
+    addToBugBoard: (item) =>
       dispatch({ type: 'ADD_TO_BUG_BOARD', payload: item }),
-    toggleIsVisible: () => 
+    toggleIsVisible: () =>
       dispatch({ type: 'TOGGLE_MODAL' }),
-    updateModalList: (collection) => 
-      dispatch({ type: 'UPDATE_MODAL_LIST', payload: collection }),
+    removeFromModalList: (item) =>
+      dispatch({ type: 'REMOVE_FROM_MODAL_LIST', payload: item }),
   };
 
   return (

@@ -8,13 +8,13 @@ export default function BugModal() {
     modalList 
   }, { 
     addToTriage, 
-    updateModalList 
+    removeFromModalList
   }] = useGlobalState();
                                      
   function handleClick(species) {
     const { name } = species;
     addToTriage(species);
-    updateModalList(modalList.filter(item => item.name !== name));
+    removeFromModalList(name);
   }
 
   return (
