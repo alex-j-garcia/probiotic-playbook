@@ -18,12 +18,7 @@ function reducer(state, { type , payload }) {
     case 'REMOVE_FROM_TRIAGE':
       return {
         ...state,
-        triage: state.triage.filter(({ name }) => name !== payload.item.name),
-      };
-    case 'ADD_TO_BUG_BOARD':
-      return {
-        ...state,
-        bugBoard: [...state.bugBoard, payload],
+        triage: state.triage.filter(({ name }) => name !== payload.name),
       };
     case 'TOGGLE_MODAL':
       return {
@@ -40,6 +35,16 @@ function reducer(state, { type , payload }) {
         ...state,
         modalList: state.modalList.filter(item => item.name !== payload.name),
       };
+    case 'ADD_TO_IMPROVE':
+      return {
+        ...state,
+        toImprove: [...state.toImprove, payload],
+      }
+    case 'ADD_TO_GOING_WELL':
+      return {
+        ...state,
+        goingWell: [...state.goingWell, payload],
+      }
     default:
       return state;
   }
@@ -51,6 +56,8 @@ function StateContextProvider({ children }) {
     modalIsVisible: false,
     triage: [],
     bugBoard: [],
+    toImprove: [],
+    goingWell: [],
     modalList: data,
   });
 
@@ -61,14 +68,16 @@ function StateContextProvider({ children }) {
   const handlers = {
     addToTriage: (item) => 
       dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
-    removeFromTriage: (item) => 
+    removeFromTriage: (item) =>
       dispatch({ type: 'REMOVE_FROM_TRIAGE', payload: item }),
-    addToBugBoard: (item) =>
-      dispatch({ type: 'ADD_TO_BUG_BOARD', payload: item }),
     toggleIsVisible: () =>
       dispatch({ type: 'TOGGLE_MODAL' }),
     removeFromModalList: (item) =>
       dispatch({ type: 'REMOVE_FROM_MODAL_LIST', payload: item }),
+    addToImprove: (item) =>
+      dispatch({ type: 'ADD_TO_IMPROVE', payload: item }),
+    addToGoingWell: (item) =>
+      dispatch({ type: 'ADD_TO_GOING_WELL', payload: item }),
   };
 
   return (

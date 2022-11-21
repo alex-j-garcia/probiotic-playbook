@@ -1,7 +1,7 @@
 import './BugCard.css';
 
 export default function BugCard({
-  species,
+  item,
   children = null,
   isDraggable = false,
 }) {
@@ -11,7 +11,7 @@ export default function BugCard({
       draggable={isDraggable}
       onDragStart={() => console.log(`I'm being dragged!`)}
     >
-      {species.name}
+      {item.name}
       <div>
         {children}
       </div>

@@ -5,29 +5,31 @@ import ThumbsDownButton from '../../common/components/ThumbsDownButton';
 import './BugTriage.css';
 
 export default function Triage() {
-  const [{ 
-    triage 
-  }, { 
-    addToBugBoard,
-    removeFromTriage 
+  const [{
+    triage
+  }, {
+    removeFromTriage,
+    addToImprove,
+    addToGoingWell
   }] = useGlobalState();
 
-  function handleClick(item) {
+  function handleThumbsUpClick(item) {
     removeFromTriage(item);
-    addToBugBoard(item);
+    addToGoingWell(item);
+  }
+
+  function handleThumbsDownClick(item) {
+    removeFromTriage(item);
+    addToImprove(item);
   }
 
   return (
     <div className='Triage troubleshooting'>
       {triage.length ?
         triage.map((item, index) => (
-          <BugCard key={index} species={item}>
-            <ThumbsUpButton handleClick={() => (
-              handleClick({ item, button: '👍' })
-            )} />
-            <ThumbsDownButton handleClick={() => (
-              handleClick({ item, button: '👎' })
-            )} />
+          <BugCard key={index} item={item}>
+            <ThumbsUpButton handleClick={() => handleThumbsUpClick(item)} />
+            <ThumbsDownButton handleClick={() => handleThumbsDownClick(item)} />
           </BugCard>
         )) :
         null

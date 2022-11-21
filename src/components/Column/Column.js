@@ -13,9 +13,9 @@ export default function Column({
   return (
     <div className='Column' onDragOver={() => console.log(`${name} has an element over it`)}>{name}
       <ul>
-        {list.map(({ item }, index) => (
-          <BugCard key={index} species={item} isDraggable={true} />
-        ))}
+        {list.map((item, index) => {
+          return <BugCard key={index} item={item} isDraggable={true} />
+        })}
       </ul>
     </div>
   );
