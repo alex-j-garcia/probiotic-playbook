@@ -1,4 +1,4 @@
-import Header from '../Header/Header';
+import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import Triage from '../BugTriage/BugTriage';
 import BugBoard from '../BugBoard/BugBoard';
 import './Dashboard.css';
@@ -6,7 +6,7 @@ import './Dashboard.css';
 export default function Dashboard() {
   return (
     <main className='Dashboard'>
-      <Header />
+      <DashboardHeader />
       <Triage />
       <BugBoard />
     </main>

@@ -1,4 +1,5 @@
 import { useGlobalState } from '../hooks/useGlobalState';
+import Header from './Header';
 import Button from './Button';
 import './Overlay.css';
 
@@ -9,9 +10,9 @@ export default function Overlay({ children }) {
 
   return (
     <div className='Overlay'>
-      <header>
+      <Header>
         <Button handleClick={toggleIsVisible}>X</Button>
-      </header>
+      </Header>
       {children}
     </div>
   );
