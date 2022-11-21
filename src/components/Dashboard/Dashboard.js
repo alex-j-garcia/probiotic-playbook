@@ -1,6 +1,6 @@
-import Header from './components/Header';
-import Triage from './components/Triage';
-import BugBoard from './components/BugBoard';
+import Header from '../Header/Header';
+import Triage from '../BugTriage/BugTriage';
+import BugBoard from '../BugBoard/BugBoard';
 import './Dashboard.css';
 
 export default function Dashboard() {

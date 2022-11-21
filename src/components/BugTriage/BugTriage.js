@@ -1,14 +1,14 @@
-import { useGlobalState } from '../../common/useGlobalState';
-import BugCard from './BugCard';
-import ThumbsUpButton from '../../common/ThumbsUpButton';
-import ThumbsDownButton from '../../common/ThumbsDownButton';
-import './Triage.css';
+import { useGlobalState } from '../../common/hooks/useGlobalState';
+import BugCard from '../BugCard/BugCard';
+import ThumbsUpButton from '../../common/components/ThumbsUpButton';
+import ThumbsDownButton from '../../common/components/ThumbsDownButton';
+import './BugTriage.css';
 
 export default function Triage() {
   const [{ 
     triage 
   }, { 
-    addToBugBoard, 
+    addToBugBoard,
     removeFromTriage 
   }] = useGlobalState();
 

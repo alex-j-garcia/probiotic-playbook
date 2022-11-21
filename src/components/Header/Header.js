@@ -1,5 +1,5 @@
-import { useGlobalState } from '../../common/useGlobalState';
-import Button from '../../common/Button';
+import { useGlobalState } from '../../common/hooks/useGlobalState';
+import Button from '../../common/components/Button';
 
 export default function Header() {
   const [, { toggleIsVisible }] = useGlobalState();

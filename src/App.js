@@ -1,7 +1,7 @@
-import { StateContextProvider } from './modules/common/useGlobalState';
-import Overlay from './modules/common/Overlay';
-import BugModal from './modules/dashboard/components/BugModal';
-import Dashboard from './modules/dashboard/Dashboard';
+import { StateContextProvider } from './common/hooks/useGlobalState';
+import Overlay from './common/components/Overlay';
+import BugModal from './components/BugModal/BugModal';
+import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
 
 function App() {

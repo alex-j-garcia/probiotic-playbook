@@ -1,10 +1,10 @@
-import { useGlobalState } from '../../common/useGlobalState';
-import BugCard from './BugCard';
-import Button from '../../common/Button';
+import { useGlobalState } from '../../common/hooks/useGlobalState';
+import BugCard from '../BugCard/BugCard';
+import Button from '../../common/components/Button';
 import './BugModal.css';
 
 export default function BugModal() {
-  const [{ 
+  const [{
     modalList 
   }, { 
     addToTriage, 

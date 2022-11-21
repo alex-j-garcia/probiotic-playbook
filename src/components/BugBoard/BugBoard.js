@@ -1,5 +1,5 @@
-import { useGlobalState } from "../../common/useGlobalState";
-import Column from "./Column";
+import { useGlobalState } from "../../common/hooks/useGlobalState";
+import Column from "../Column/Column";
 import './BugBoard.css'
 
 export default function BugBoard() {

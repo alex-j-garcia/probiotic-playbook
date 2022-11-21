@@ -1,4 +1,4 @@
-import { useGlobalState } from './useGlobalState';
+import { useGlobalState } from '../hooks/useGlobalState';
 import Button from './Button';
 import './Overlay.css';
 

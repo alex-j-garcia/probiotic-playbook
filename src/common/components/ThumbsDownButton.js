@@ -1,4 +1,4 @@
-import Button from '../common/Button';
+import Button from './Button';
 
 export default function ThumbsDownButton({ handleClick }) {
   return (

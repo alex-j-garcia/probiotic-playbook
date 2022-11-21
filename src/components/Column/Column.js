@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import BugCard from './BugCard';
+import BugCard from '../BugCard/BugCard';
 
 Column.propTypes = {
   name: PropTypes.string.isRequired,
