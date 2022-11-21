@@ -11,18 +11,17 @@ export default function BugModal() {
     removeFromModalList
   }] = useGlobalState();
                                      
-  function handleClick(species) {
-    const { name } = species;
-    addToTriage(species);
-    removeFromModalList(name);
+  function handleClick(item) {
+    addToTriage(item);
+    removeFromModalList(item);
   }
 
   return (
     <div className='BugModal troubleshooting'>
       {modalList.length ?
-        modalList.map((species, i) => (
-          <BugCard key={i} species={species}>
-            <Button handleClick={() => handleClick(species)}>
+        modalList.map((item, i) => (
+          <BugCard key={i} species={item}>
+            <Button handleClick={() => handleClick(item)}>
               ➕
             </Button>
           </BugCard>

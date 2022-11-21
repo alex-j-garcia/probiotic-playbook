@@ -38,7 +38,7 @@ function reducer(state, { type , payload }) {
     case 'REMOVE_FROM_MODAL_LIST':
       return {
         ...state,
-        modalList: state.modalList.filter(item => item.name !== payload),
+        modalList: state.modalList.filter(item => item.name !== payload.name),
       };
     default:
       return state;
