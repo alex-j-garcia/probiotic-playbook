@@ -1,33 +1,25 @@
 import { useGlobalState } from '../../common/hooks/useGlobalState';
-import BugCard from '../BugCard/BugCard';
-import Button from '../../common/components/Button';
+import ModalList from './components/ModalList'
 import './BugModal.css';
 
 export default function BugModal() {
   const [{
-    modalList 
-  }, { 
-    addToTriage, 
+    modalList
+  }, {
+    addToTriage,
     removeFromModalList
   }] = useGlobalState();
-                                     
+
   function handleClick(item) {
     addToTriage(item);
     removeFromModalList(item);
   }
 
+  if (!modalList.length) return null;
+
   return (
     <div className='BugModal troubleshooting'>
-      {modalList.length ?
-        modalList.map((item, i) => (
-          <BugCard key={i} species={item}>
-            <Button handleClick={() => handleClick(item)}>
-              ➕
-            </Button>
-          </BugCard>
-        )) :
-        null
-      }
+      <ModalList list={modalList} handleClick={handleClick} />
     </div>
   );
 }
