@@ -58,7 +58,7 @@ function StateContextProvider({ children }) {
     bugBoard: [],
     toImprove: [],
     goingWell: [],
-    modalList: data,
+    modalList: null,
   });
 
   useEffect(() => {
