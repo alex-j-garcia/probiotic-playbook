@@ -7,8 +7,7 @@ import {
 } from 'react';
 
 const StateContext = createContext();
-
-function reducer(state, { type , payload }) {
+const reducer = function (state, { type, payload }) {
   switch(type) {
     case 'ADD_TO_TRIAGE':
       return {
@@ -28,7 +27,7 @@ function reducer(state, { type , payload }) {
     case 'SET_MODAL_LIST':
       return {
         ...state,
-        modalList: [...payload],
+        modalList: payload,
       };
     case 'REMOVE_FROM_MODAL_LIST':
       return {
@@ -49,24 +48,25 @@ function reducer(state, { type , payload }) {
       return state;
   }
 }
+const initialState = {
+  modalIsVisible: false,
+  triage: [],
+  bugBoard: [],
+  toImprove: [],
+  goingWell: [],
+  modalList: null,
+};
 
 function StateContextProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const data = useJsonData();
-  const [state, dispatch] = useReducer(reducer, {
-    modalIsVisible: false,
-    triage: [],
-    bugBoard: [],
-    toImprove: [],
-    goingWell: [],
-    modalList: null,
-  });
 
   useEffect(() => {
     dispatch({ type: 'SET_MODAL_LIST', payload: data });
   }, [data]);
 
   const handlers = {
-    addToTriage: (item) => 
+    addToTriage: (item) =>
       dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
     removeFromTriage: (item) =>
       dispatch({ type: 'REMOVE_FROM_TRIAGE', payload: item }),
