@@ -5,11 +5,8 @@ export default function BugCard({
   children = null,
 }) {
   return (
-    <div className='BugCard'>
-      {item.name}
-      <div>
-        {children}
-      </div>
+    <div className='BugCard'>{item.name}
+      <div>{children}</div>
     </div>
   );
 }
