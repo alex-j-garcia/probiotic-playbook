@@ -26,7 +26,7 @@ export default function DropTarget({ children, updateOnDrop }) {
       style={styles}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
-      onDragLeave={() => setIsDragOver(false)}
+      onDragLeave={(e) => {setIsDragOver(false); console.log(e);}}
     >
       {children}
     </div>

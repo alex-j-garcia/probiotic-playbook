@@ -38,17 +38,32 @@ const reducer = function (state, { type, payload }) {
       return {
         ...state,
         toImprove: [...state.toImprove, payload],
-      }
+      };
     case 'ADD_TO_GOING_WELL':
       return {
         ...state,
         goingWell: [...state.goingWell, payload],
-      }
+      };
     case 'ADD_TO_IN_PROGRESS':
       return {
         ...state,
         inProgress: [...state.inProgress, payload],
-      }
+      };
+    case 'REMOVE_FROM_IN_PROGRESS':
+      return {
+        ...state,
+        inProgress: state.inProgress.filter(item => item.id !== payload.id),
+      };
+    case 'REMOVE_FROM_GOING_WELL':
+      return {
+        ...state,
+        goingWell: state.goingWell.filter(item => item.id !== payload.id),
+      };
+    case 'REMOVE_FROM_TO_IMPROVE':
+      return {
+        ...state,
+        toImprove: state.toImprove.filter(item => item.id !== payload.id),
+      };
     default:
       return state;
   }
@@ -86,6 +101,12 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'ADD_TO_GOING_WELL', payload: item }),
     addToInProgress: (item) =>
       dispatch({ type: 'ADD_TO_IN_PROGRESS', payload: item }),
+    removeFromToImprove: (item) =>
+      dispatch({ type: 'REMOVE_FROM_TO_IMPROVE', payload: item }),
+    removeFromGoingWell: (item) =>
+      dispatch({ type: 'REMOVE_FROM_GOING_WELL', payload: item }),
+    removeFromInProgress: (item) =>
+      dispatch({ type: 'REMOVE_FROM_IN_PROGRESS', payload: item }),
   };
 
   return (
