@@ -5,12 +5,15 @@ import './BugBoard.css'
 export default function BugBoard() {
   const [state, handlers] = useGlobalState();
 
-  const columns = columnMap.map(({ name, list, dispatch }, index) => (
+  const columns = columnMap.map(({ name, list, addFn, removeFn, }, index) => (
     <DropColumn
       key={index}
       name={name}
       list={state[list]}
-      updateFn={handlers[dispatch]}
+      handlers={{
+        add: handlers[addFn],
+        remove: handlers[removeFn],
+      }}
     />
   ));
 
@@ -25,16 +28,19 @@ const columnMap = [
   {
     name: 'To Improve',
     list: 'toImprove',
-    dispatch: 'addToImprove',
+    addFn: 'addToImprove',
+    removeFn: 'removeFromToImprove',
   },
   {
     name: 'In Progress',
     list: 'inProgress',
-    dispatch: 'addToInProgress',
+    addFn: 'addToInProgress',
+    removeFn: 'removeFromInProgress',
   },
   {
     name: 'Going Well',
     list: 'goingWell',
-    dispatch: 'addToGoingWell',
+    addFn: 'addToGoingWell',
+    removeFn: 'removeFromGoingWell',
   },
 ];

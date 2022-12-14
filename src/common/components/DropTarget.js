@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-export default function DropTarget({ children, updateOnDrop }) {
+export default function DropTarget({ children, handlers, }) {
   const [isDragOver, setIsDragOver] = useState(false);
+  const { add, remove } = handlers;
 
   const handleDragOver = (event) => {
     // Default drag over behavior prevents dropping.
@@ -11,11 +12,19 @@ export default function DropTarget({ children, updateOnDrop }) {
 
   const handleDrop = (event) => {
     const droppedItem = event.dataTransfer.getData('drag-item');
-    setIsDragOver(false);
     if (droppedItem) {
-      updateOnDrop(JSON.parse(droppedItem));
+      add(JSON.parse(droppedItem));
     }
+    setIsDragOver(false);
   };
+
+  const handleDragLeave = (event) => {
+    const draggedElement = event.dataTransfer.getData('drag-item');
+    if (draggedElement) {
+      remove(JSON.parse(draggedElement));
+    }
+    setIsDragOver(false);
+  }
 
   const styles = {
     background: isDragOver ? 'hsl(0, 0%, 95%)' : '',
@@ -26,7 +35,7 @@ export default function DropTarget({ children, updateOnDrop }) {
       style={styles}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
-      onDragLeave={(e) => {setIsDragOver(false); console.log(e);}}
+      onDragLeave={handleDragLeave}
     >
       {children}
     </div>
