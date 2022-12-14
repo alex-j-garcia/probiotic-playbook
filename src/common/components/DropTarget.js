@@ -18,9 +18,10 @@ export default function DropTarget({ children, handlers, }) {
     setIsDragOver(false);
   };
 
-  const handleDragLeave = (event) => {
-    const draggedElement = event.dataTransfer.getData('drag-item');
-    if (draggedElement) {
+  const handleDragLeave = ({ dataTransfer, target }) => {
+    const draggedElement = dataTransfer.getData('drag-item');
+    const isDropTarget = [...target.classList].includes('DropTarget');
+    if (draggedElement && isDropTarget) {
       remove(JSON.parse(draggedElement));
     }
     setIsDragOver(false);
@@ -36,6 +37,7 @@ export default function DropTarget({ children, handlers, }) {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
+      className='DropTarget'
     >
       {children}
     </div>
