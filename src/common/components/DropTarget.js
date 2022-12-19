@@ -19,12 +19,13 @@ export default function DropTarget({ children, handlers, }) {
   };
 
   const handleDragLeave = ({ dataTransfer, target }) => {
-    const draggedElement = dataTransfer.getData('drag-item');
     const isDropTarget = [...target.classList].includes('DropTarget');
-    if (draggedElement && isDropTarget) {
-      remove(JSON.parse(draggedElement));
+
+    if (isDropTarget) {
+      const draggedElement = dataTransfer.getData('drag-item');
+      if (draggedElement) remove(JSON.parse(draggedElement));
+      setIsDragOver(false);
     }
-    setIsDragOver(false);
   }
 
   const styles = {
