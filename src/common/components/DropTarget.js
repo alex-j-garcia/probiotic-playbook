@@ -18,10 +18,12 @@ export default function DropTarget({ children, handlers, }) {
     setIsDragOver(false);
   };
 
-  const handleDragLeave = ({ dataTransfer, target }) => {
+  const handleDragLeave = ({ target, relatedTarget, dataTransfer }) => {
     const isDropTarget = [...target.classList].includes('DropTarget');
+    const isBugCard =
+      relatedTarget && [...relatedTarget.classList].includes('BugCard');
 
-    if (isDropTarget) {
+    if (isDropTarget && !isBugCard) {
       const draggedElement = dataTransfer.getData('drag-item');
       if (draggedElement) remove(JSON.parse(draggedElement));
       setIsDragOver(false);
