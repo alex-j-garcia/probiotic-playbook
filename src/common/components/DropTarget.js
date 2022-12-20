@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-export default function DropTarget({ children, handlers, }) {
+export default function DropTarget({ children, handlers, dragSource }) {
   const [isDragOver, setIsDragOver] = useState(false);
-  const { add, remove } = handlers;
+  const { add, remove, onDragStart } = handlers;
 
   const handleDragOver = (event) => {
     // Default drag over behavior prevents dropping.
@@ -10,8 +10,12 @@ export default function DropTarget({ children, handlers, }) {
     setIsDragOver(true);
   };
 
-  const handleDrop = (event) => {
-    const droppedItem = event.dataTransfer.getData('drag-item');
+  const handleDrop = ({ dataTransfer, target, }) => {
+    if (target === dragSource) {
+      return;
+    }
+
+    const droppedItem = dataTransfer.getData('drag-item');
     if (droppedItem) {
       add(JSON.parse(droppedItem));
     }
@@ -40,6 +44,7 @@ export default function DropTarget({ children, handlers, }) {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
+      onDragStart={onDragStart}
       className='DropTarget'
     >
       {children}
