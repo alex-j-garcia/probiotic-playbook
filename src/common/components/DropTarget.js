@@ -10,11 +10,7 @@ export default function DropTarget({ children, handlers, dragSource }) {
     setIsDragOver(true);
   };
 
-  const handleDrop = ({ dataTransfer, target, }) => {
-    if (target === dragSource) {
-      return;
-    }
-
+  const handleDrop = ({ dataTransfer, }) => {
     const droppedItem = dataTransfer.getData('drag-item');
     if (droppedItem) {
       add(JSON.parse(droppedItem));

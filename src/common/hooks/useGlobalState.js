@@ -95,12 +95,24 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'TOGGLE_MODAL' }),
     removeFromModalList: (item) =>
       dispatch({ type: 'REMOVE_FROM_MODAL_LIST', payload: item }),
-    addToImprove: (item) =>
-      dispatch({ type: 'ADD_TO_IMPROVE', payload: item }),
-    addToGoingWell: (item) =>
-      dispatch({ type: 'ADD_TO_GOING_WELL', payload: item }),
-    addToInProgress: (item) =>
-      dispatch({ type: 'ADD_TO_IN_PROGRESS', payload: item }),
+    addToImprove: (item) => {
+      if (state.toImprove.some(element => element.id === item.id)) {
+        return;
+      }
+      dispatch({ type: 'ADD_TO_IMPROVE', payload: item });
+    },
+    addToGoingWell: (item) => {
+      if (state.goingWell.includes(item)) {
+        return;
+      }
+      dispatch({ type: 'ADD_TO_GOING_WELL', payload: item });
+    },
+    addToInProgress: (item) => {
+      if (state.inProgress.includes(item)) {
+        return;
+      }
+      dispatch({ type: 'ADD_TO_IN_PROGRESS', payload: item });
+    },
     removeFromToImprove: (item) =>
       dispatch({ type: 'REMOVE_FROM_TO_IMPROVE', payload: item }),
     removeFromGoingWell: (item) =>
