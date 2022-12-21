@@ -1,13 +1,9 @@
-import { useState } from 'react';
-
 export default function DropTarget({ children, handlers, dragSource }) {
-  const [isDragOver, setIsDragOver] = useState(false);
   const { add, remove, onDragStart } = handlers;
 
   const handleDragOver = (event) => {
     // Default drag over behavior prevents dropping.
     event.preventDefault();
-    setIsDragOver(true);
   };
 
   const handleDrop = ({ dataTransfer, }) => {
@@ -15,7 +11,6 @@ export default function DropTarget({ children, handlers, dragSource }) {
     if (droppedItem) {
       add(JSON.parse(droppedItem));
     }
-    setIsDragOver(false);
   };
 
   const handleDragLeave = ({ target, relatedTarget, dataTransfer }) => {
@@ -26,17 +21,11 @@ export default function DropTarget({ children, handlers, dragSource }) {
     if (isDropTarget && !isBugCard) {
       const draggedElement = dataTransfer.getData('drag-item');
       if (draggedElement) remove(JSON.parse(draggedElement));
-      setIsDragOver(false);
     }
   }
 
-  const styles = {
-    background: isDragOver ? 'hsl(0, 0%, 95%)' : '',
-  };
-
   return (
     <div
-      style={styles}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
