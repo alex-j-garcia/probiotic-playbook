@@ -1,9 +1,9 @@
 import DropTarget from '../../common/components/DropTarget';
 import Column from '../Column/Column';
 
-export default function DropColumn({ name, list, handlers, dragSource }) {
+export default function DropColumn({ name, list, handlers, }) {
   return (
-    <DropTarget handlers={handlers} dragSource={dragSource}>
+    <DropTarget handlers={handlers}>
       <Column name={name} list={list} />
     </DropTarget>
   );

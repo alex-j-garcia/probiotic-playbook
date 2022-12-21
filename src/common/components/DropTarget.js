@@ -1,5 +1,5 @@
-export default function DropTarget({ children, handlers, dragSource }) {
-  const { add, remove, onDragStart } = handlers;
+export default function DropTarget({ children, handlers, }) {
+  const { add, remove, } = handlers;
 
   const handleDragOver = (event) => {
     // Default drag over behavior prevents dropping.
@@ -13,14 +13,10 @@ export default function DropTarget({ children, handlers, dragSource }) {
     }
   };
 
-  const handleDragLeave = ({ target, relatedTarget, dataTransfer }) => {
-    const isDropTarget = [...target.classList].includes('DropTarget');
-    const isBugCard =
-      relatedTarget && [...relatedTarget.classList].includes('BugCard');
-
-    if (isDropTarget && !isBugCard) {
-      const draggedElement = dataTransfer.getData('drag-item');
-      if (draggedElement) remove(JSON.parse(draggedElement));
+  const handleDragLeave = ({ dataTransfer }) => {
+    const draggedElement = dataTransfer.getData('drag-item');
+    if (draggedElement) {
+      remove(JSON.parse(draggedElement));
     }
   }
 
@@ -29,7 +25,6 @@ export default function DropTarget({ children, handlers, dragSource }) {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      onDragStart={onDragStart}
       className='DropTarget'
     >
       {children}
