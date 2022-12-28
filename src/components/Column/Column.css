@@ -1,3 +1,10 @@
 .Column {
+  height: 100%;
+  border-radius: 10px;
+
   text-align: center;
+}
+
+.Column:hover {
+  background-color: hsla(0, 8%, 95%, 0.6);
 }
