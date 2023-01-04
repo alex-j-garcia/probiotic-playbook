@@ -10,5 +10,5 @@ export default function useJsonData() {
       .then(collection => setData(collection));
   }, []);
 
-  return data;
+  return [data, setData];
 }

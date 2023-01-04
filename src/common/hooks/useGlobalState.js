@@ -3,7 +3,6 @@ import {
   createContext,
   useContext,
   useReducer,
-  useEffect,
 } from 'react';
 
 const StateContext = createContext();
@@ -23,16 +22,6 @@ const reducer = function (state, { type, payload }) {
       return {
         ...state,
         modalIsVisible: !state.modalIsVisible,
-      };
-    case 'SET_MODAL_LIST':
-      return {
-        ...state,
-        modalList: payload,
-      };
-    case 'REMOVE_FROM_MODAL_LIST':
-      return {
-        ...state,
-        modalList: state.modalList.filter(item => item.name !== payload.name),
       };
     case 'ADD_TO_IMPROVE':
       return {
@@ -75,16 +64,11 @@ const initialState = {
   toImprove: [],
   goingWell: [],
   inProgress: [],
-  modalList: null,
 };
 
 function StateContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const data = useJsonData();
-
-  useEffect(() => {
-    dispatch({ type: 'SET_MODAL_LIST', payload: data });
-  }, [data]);
+  const [data, setData] = useJsonData();
 
   const handlers = {
     addToTriage: (item) =>
@@ -94,16 +78,16 @@ function StateContextProvider({ children }) {
     toggleIsVisible: () =>
       dispatch({ type: 'TOGGLE_MODAL' }),
     removeFromModalList: (item) =>
-      dispatch({ type: 'REMOVE_FROM_MODAL_LIST', payload: item }),
-      addToImprove: (item) => {
-        const doesExist = state.toImprove.some(
-          element => element.id === item.id
-        );
-        if (doesExist) {
-          return;
-        }
-        dispatch({ type: 'ADD_TO_IMPROVE', payload: item });
-      },
+      setData(prevData => prevData.filter(element => element.id !== item.id)),
+    addToImprove: (item) => {
+      const doesExist = state.toImprove.some(
+        element => element.id === item.id
+      );
+      if (doesExist) {
+        return;
+      }
+      dispatch({ type: 'ADD_TO_IMPROVE', payload: item });
+    },
     addToGoingWell: (item) => {
       const doesExist = state.goingWell.some(
         element => element.id === item.id
@@ -131,7 +115,13 @@ function StateContextProvider({ children }) {
   };
 
   return (
-    <StateContext.Provider value={{ state, handlers }}>
+    <StateContext.Provider value={{
+      state: {
+        ...state,
+        modalList: data
+      },
+      handlers,
+    }}>
       {children}
     </StateContext.Provider>
   );
