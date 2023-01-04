@@ -6,7 +6,7 @@ export default function useJsonData() {
   useEffect(() => {
     fetch('data.json')
       .then(response => response.json())
-      .then(data => data.species)
+      .then(data => data.microbiota)
       .then(collection => setData(collection));
   }, []);
 

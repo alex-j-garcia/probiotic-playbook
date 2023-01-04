@@ -1,148 +1,167 @@
 {
-  "species": [
+  "microbiota": [
+    {
+      "id": 0,
+      "name": "Bifidobacterium",
+      "type": "genus",
+      "info": "This genus contains many species and is grouped under Actinobacteria, one of the primary phyla in the gut. Found in low levels in people experiencing abdominal pain. Help produce short chain fatty acids, suppress unhealthy microbes, and optimize our immune system.",
+      "impact": "Increased abundance has been associated with amelioration of inflammation; the more you have, the less inflammation you'll have.",
+      "recommendation": [
+        "chocolate",
+        "green tea",
+        "blackcurrant",
+        "red wine",
+        "grape seed extracts",
+        "maize",
+        "barley-based whole grains",
+        "red berries",
+        "inulin"
+      ],
+      "beneficiaries": []
+    },
     {
       "id": 1,
-      "name": "Lacto Bacillus",
-      "recommendation": "eat beets",
-      "commensurate": "H. pylori"
+      "name": "Catenibacterium mitsuokai",
+      "type": "species",
+      "info": "Seen in consumption of a Western diet.",
+      "impact": "Increased abundance is associated with obesity-related insulin resistance.",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 2,
-      "name": "Bifidobacterium",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Colistridum methylpentosum",
+      "type": "species",
+      "info": "This species ferments the naturally occurring sugar L-rhamnose from pectin.",
+      "impact": "L-rhamnose is then used for short chain fatty acid production, specifically some kinds that have pivotal roles in maintenance of mucosal barrier integrity and appetite suppression.",
+      "recommendation": ["Consumption of probiotic yogurt LKM512 containing Bifidobacterium animalis"],
+      "beneficiaries": []
     },
     {
       "id": 3,
-      "name": "H. pylori",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Eubacterium hallii",
+      "type": "species",
+      "info": "This species produces butyrate and is capable of metabolizing glucose into byproducts with antimicrobial properties. Decreased levels have been associated with very high protein diets.",
+      "impact": "Butyrate is a key regulator of mucosal barrier integrity and function.",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 4,
-      "name": "SamIsCutes",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Eubacterium rectale",
+      "type": "species",
+      "info": "This species produces butyrate. A lower abundance is found in patients with type 2 diabetes, colorectal cancer, and chronic idiopathic diarrhea.",
+      "impact": "Butyrate is a key regulator of mucosal barrier integrity and function.",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 5,
-      "name": "GretchenWhitmer",
-      "recommendation": "eat beets",
-      "commensurate": "H. pylori"
+      "name": "F. Prausnitzii",
+      "type": "species",
+      "info": "This species is one of the highest butyrate producers in a healthy gastrointestingal tract. It also exerts anti-inflammatory effects via short chain fatty acids. Reduced levels were found in individuals with Inflammatory Bowel Disease, Irritable Bowel Syndrome, celiac disease, and general gastrointestinal inflammation. Reduced levels were also found in those suffering from Parkinson's disease, bipolar disorder, colorectal cancer, diabetes, and those with major depressive disorder.",
+      "impact": "Butyrate is a key regulator of mucosal barrier integrity and function. Increased levels of F. prausnitzii help prevent gut dysbiosis.",
+      "recommendation": ["inulin", "chicory root", "jerusalem artichokes", "dandelion greens", "asparagus", "banana"],
+      "beneficiaries": []
     },
     {
       "id": 6,
-      "name": "TudorDixon",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Lachnospiraceae",
+      "type": "genus",
+      "info": "A family of butyric acid producers.",
+      "impact": "Butyrate is a key regulator of mucosal barrier integrity and function. This genus is associated with beneficial microbial and epithelial cell growth. Seems to decrease with consumption of resistant starch.",
+      "recommendation": ["Cruciferous vegetables", "wheat bran"],
+      "beneficiaries": []
     },
     {
       "id": 7,
-      "name": "BlakeMasters",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Proteobacteria",
+      "type": "phylum",
+      "info": "This phylum includes a wide variety of pathogens capable of inducing inflammation and diarrhea when their presence is increased. Makes up approximately 2% of the gut microbiota in healthy adults. A high-fat diet is associated with abundance of this phylum. ",
+      "impact": "Proteobacteria are associated with inflammation, Irritable Bowel Syndrome, and Inflammatory Bowel Disease.",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 8,
-      "name": "MarkKelly",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Escherichia",
+      "type": "genus",
+      "info": "This genus is grouped in the Proteobacteria phylum. Consumption of a Western diet is associated with increased levels.",
+      "impact": "Contributes to Inflammatory Bowel Disease. Higher levels contribute to gut dysbiosis.",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 9,
-      "name": "RonDesantis",
-      "recommendation": "eat beets",
-      "commensurate": "H. pylori"
+      "name": "Escheria coli",
+      "type": "species",
+      "info": "Commonly known as 'E. coli' and often found in contaminated food.",
+      "impact": "Increased levels of E. coli were observed in people on a gluten-free diet.",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 10,
-      "name": "CharlieCrist",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Tenericutes",
+      "type": "phylum",
+      "info": "A phylum that typically contains parasites.",
+      "impact": "",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 11,
-      "name": "DonaldTrump",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Verrucomicrobia",
+      "type": "phylum",
+      "info": "A less common phylum in the human gut microbiota, but one with increasing recognition in regards to health.",
+      "impact": "",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 12,
-      "name": "JoeBiden",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Akkermansia muciniphila",
+      "type": "species",
+      "info": "This is a genus that constitutes 3-5% of total bacteria in a healthy microbiome. Decreased populations have been found in low-FODMAP diets, a strict elimination diet that may be necessary for some indivuiduals but long-term exposure may starve certain microbial species.",
+      "impact": "Has shown to have a protective or anti-inflammatory role in the intestinal mucosa. Lower levels seem to be associated with gut dysbiosis.",
+      "recommendation": ["granny smith apples", "apple peels"],
+      "beneficiaries": []
     },
     {
       "id": 13,
-      "name": "PedroGonzalez",
-      "recommendation": "eat beets",
-      "commensurate": "H. pylori"
+      "name": "Bilophila wadsworthia",
+      "type": "species",
+      "info": "An unhealthy microbe that thrives with the consumption of saturated fat in animal-based diet. Also associated with a low FODMAP diet.",
+      "impact": "Promotes inflammation, intestinal barrier dysfunction, and bile acid dysmetabolism, and as a result has been associated with IBD, colorectal cancer, fatty liver, and diabetes.",
+      "recommendation": ["High FODMAP diet"],
+      "beneficiaries": []
     },
     {
       "id": 14,
-      "name": "MikeCernovich",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Actinobacteria",
+      "type": "phylum",
+      "info": "One of the six primary phyla in the gut. The significant genera are Actinomycetales and Bifidobacteriales",
+      "impact": "",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 15,
-      "name": "FarrahFaucet",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Bacteroidetes",
+      "type": "phylum",
+      "info": "Make up ~28% of the microbiota in healthy human adults. A low population in relation to the Firmicutes phylum has been associated with obesity (though this is resolved with weight loss).",
+      "impact": "",
+      "recommendation": [],
+      "beneficiaries": []
     },
     {
       "id": 16,
-      "name": "LukeSkywalker",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
-    },
-    {
-      "id": 17,
-      "name": "DarthVader",
-      "recommendation": "eat beets",
-      "commensurate": "H. pylori"
-    },
-    {
-      "id": 18,
-      "name": "PhillipSeymourHoffman",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
-    },
-    {
-      "id": 19,
-      "name": "MundungusFletcher",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
-    },
-    {
-      "id": 20,
-      "name": "RyanPhillipe",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
-    },
-    {
-      "id": 21,
-      "name": "AshleyParkerAngel",
-      "recommendation": "eat beets",
-      "commensurate": "H. pylori"
-    },
-    {
-      "id": 22,
-      "name": "RossFromFriends",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
-    },
-    {
-      "id": 23,
-      "name": "PeterPan",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
-    },
-    {
-      "id": 24,
-      "name": "DanTheMan",
-      "recommendation": "eat barley-based whole grain producs",
-      "commensurate": "Firmicutes"
+      "name": "Firmicutes",
+      "type": "phylum",
+      "info": "",
+      "impact": "",
+      "recommendation": [],
+      "beneficiaries": []
     }
   ]
 }
