@@ -9,6 +9,7 @@
 	flex-wrap: wrap;
   overflow-y: auto;
   border-radius: 5px;
+  background-color: hsl(0, 0%, 97%);
 }
 
 .BugModal > .BugCard {
