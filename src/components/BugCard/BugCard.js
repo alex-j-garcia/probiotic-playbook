@@ -6,7 +6,7 @@ export default function BugCard({
   children = null,
 }) {
   return (
-    <div className='BugCard'>{item.name}
+    <div title={item.name} className='BugCard'>{item.name}
       <Badge type={item.type} />
       <div>{children}</div>
     </div>
