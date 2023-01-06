@@ -1,3 +1,14 @@
+:root {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
 .troubleshooting {
   outline: 2px solid red;
 }
