@@ -12,7 +12,7 @@ export default function BugCard({
     <div className='BugCard'>
       <span title={clientWidth > 152 ? name : null}>{name}</span>
       <Badge type={type} />
-      <div>{children}</div>
+      <div className='BugCard-children'>{children}</div>
     </div>
   );
 }

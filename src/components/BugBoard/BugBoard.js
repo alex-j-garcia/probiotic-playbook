@@ -18,7 +18,7 @@ export default function BugBoard() {
   ));
 
   return (
-    <div className='BugBoard troubleshooting'>
+    <div className='BugBoard'>
       {columns}
     </div>
   );

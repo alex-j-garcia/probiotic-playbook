@@ -17,3 +17,7 @@
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
+
+.BugCard-children {
+  margin-top: 15px;
+}
