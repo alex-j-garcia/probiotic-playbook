@@ -12,7 +12,7 @@ export default function useCalcTextWidth(word) {
     console.log(div.clientWidth);
     setClientWidth(Math.ceil(div.clientWidth));
     document.body.removeChild(div);
-  }, []);
+  }, [word]);
 
   return clientWidth;
 }
