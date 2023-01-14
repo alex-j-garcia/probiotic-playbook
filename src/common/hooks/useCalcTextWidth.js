@@ -6,7 +6,7 @@ export default function useCalcTextWidth(word) {
   useEffect(() => {
     const div = document.createElement('div');
     div.textContent = word;
-    div.style.fontSize = '1rem';
+    div.style.fontSize = '14px';
     div.style.display = 'inline-block';
     document.body.appendChild(div);
     console.log(div.clientWidth);

@@ -1,4 +1,8 @@
 .Column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   height: 100%;
   border-radius: 10px;
 
@@ -7,4 +11,8 @@
 
 .Column:hover {
   background-color: hsla(0, 8%, 95%, 0.6);
+}
+
+.Column .BugCard {
+  margin: 10px 0;
 }

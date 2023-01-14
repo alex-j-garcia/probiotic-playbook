@@ -1,5 +1,6 @@
 import { useGlobalState } from '../../common/hooks/useGlobalState';
-import ModalList from './components/ModalList'
+import BugCard from '../BugCard/BugCard';
+import Button from '../../common/components/Button';
 import './BugModal.css';
 
 export default function BugModal() {
@@ -15,11 +16,16 @@ export default function BugModal() {
     removeFromModalList(item);
   }
 
+  const cards = modalList.map((item, index) => (
+    <BugCard key={index} item={item}>
+      <Button handleClick={() => handleClick(item)}>+</Button>
+    </BugCard>
+  ));
+
   if (!modalList.length) return null;
 
   return (
-    <div className='BugModal troubleshooting'>
-      <ModalList list={modalList} handleClick={handleClick} />
-    </div>
-  );
+    <div className='BugModal'>
+      <div className='BugModal-content'>{cards}</div>
+    </div>);
 }
