@@ -24,13 +24,12 @@ export default function Triage() {
     addToImprove(item);
   }
 
-  function handleDragLeave({ target, dataTransfer }) {
-    if (!target.className.includes('Triage')) {
+  function handleDragLeave(event) {
+    if (!event.target.className.includes('Triage')) {
       return;
     }
 
-    const draggedItem = dataTransfer.getData('drag-item');
-    removeFromTriage(JSON.parse(draggedItem));
+    removeFromTriage(getDraggedItem(event));
   }
 
   const cards = triage.map((item, index) => (
@@ -47,4 +46,8 @@ export default function Triage() {
       {cards.length ? cards : null}
     </div>
   );
+}
+
+function getDraggedItem({ dataTransfer }) {
+  return JSON.parse(dataTransfer.getData('drag-item'));
 }
