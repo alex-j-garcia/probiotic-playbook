@@ -24,6 +24,14 @@ export default function Triage() {
     addToImprove(item);
   }
 
+  function handleDragLeave(event) {
+    if (!event.target.className.includes('Triage')) {
+      return;
+    }
+
+    removeFromTriage(getDraggedItem(event));
+  }
+
   const cards = triage.map((item, index) => (
     <Drag key={index} dataItem={item}>
       <BugCard item={item}>
@@ -34,8 +42,12 @@ export default function Triage() {
   ));
 
   return (
-    <div className='Triage'>
+    <div className='Triage' onDragLeave={handleDragLeave}>
       {cards.length ? cards : null}
     </div>
   );
+}
+
+function getDraggedItem({ dataTransfer }) {
+  return JSON.parse(dataTransfer.getData('drag-item'));
 }
