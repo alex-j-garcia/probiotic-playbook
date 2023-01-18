@@ -14,9 +14,9 @@ export default function DropTarget({ children, handlers, }) {
   };
 
   const handleDragLeave = ({ dataTransfer }) => {
-    const draggedElement = dataTransfer.getData('drag-item');
-    if (draggedElement) {
-      remove(JSON.parse(draggedElement));
+    const draggedItem = dataTransfer.getData('drag-item');
+    if (draggedItem) {
+      remove(JSON.parse(draggedItem));
     }
   }
 
