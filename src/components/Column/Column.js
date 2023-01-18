@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import BugCardList from '../BugCardList/BugCardList';
+import DragCardList from '../DragCardList/DragCardList';
 import './Column.css';
 
 Column.propTypes = {
@@ -21,7 +21,7 @@ export default function Column({ name, list = [], }) {
       onDragLeave={() => setIsDragOver(false)}
       style={styles}
     >{name}
-      <BugCardList list={list} />
+      <DragCardList list={list} />
     </div>
   );
 }
