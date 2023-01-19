@@ -1,11 +1,8 @@
 import useJsonData from './useJsonData';
-import {
-  createContext,
-  useContext,
-  useReducer,
-} from 'react';
+import { createContext, useContext, useReducer, } from 'react';
 
 const StateContext = createContext();
+
 const reducer = function (state, { type, payload }) {
   switch(type) {
     case 'ADD_TO_TRIAGE':
@@ -53,10 +50,21 @@ const reducer = function (state, { type, payload }) {
         ...state,
         toImprove: state.toImprove.filter(item => item.id !== payload.id),
       };
+    case 'ADD_DRAG_TARGET':
+      return {
+        ...state,
+        dragTarget: payload,
+      };
+    case 'REMOVE_DRAG_TARGET':
+      return {
+        ...state,
+        dragTarget: null,
+      }
     default:
       return state;
   }
 }
+
 const initialState = {
   modalIsVisible: false,
   triage: [],
@@ -64,6 +72,7 @@ const initialState = {
   toImprove: [],
   goingWell: [],
   inProgress: [],
+  dragTarget: null,
 };
 
 function StateContextProvider({ children }) {
@@ -112,6 +121,10 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'REMOVE_FROM_GOING_WELL', payload: item }),
     removeFromInProgress: (item) =>
       dispatch({ type: 'REMOVE_FROM_IN_PROGRESS', payload: item }),
+    addDragTarget: (item) =>
+      dispatch({ type: 'ADD_DRAG_TARGET', payload: item }),
+    removeDragTarget: (item) =>
+      dispatch({ type: 'REMOVE_DRAG_TARGET', }),
   };
 
   return (
