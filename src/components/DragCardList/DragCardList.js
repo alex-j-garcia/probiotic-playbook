@@ -1,4 +1,4 @@
-import DragCard from '../BugCard/BugCard';
+import DragCard from '../DragCard/DragCard';
 import List from '../../common/components/List';
 
 export default function DragCardList ({ list, }) {

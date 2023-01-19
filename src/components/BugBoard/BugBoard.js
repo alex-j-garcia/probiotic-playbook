@@ -17,11 +17,7 @@ export default function BugBoard() {
     />
   ));
 
-  return (
-    <div className='BugBoard'>
-      {columns}
-    </div>
-  );
+  return <div className='BugBoard'>{columns}</div>;
 }
 
 const columnMap = [
