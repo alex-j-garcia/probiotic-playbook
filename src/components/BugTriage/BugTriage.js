@@ -1,5 +1,6 @@
 import { useGlobalState } from '../../common/hooks/useGlobalState';
 import DragCard from '../DragCard/DragCard';
+import DropTarget from '../../common/components/DropTarget';
 import ThumbsUpButton from '../../common/components/ThumbsUpButton';
 import ThumbsDownButton from '../../common/components/ThumbsDownButton';
 import './BugTriage.css';
@@ -11,6 +12,7 @@ export default function Triage() {
     removeFromTriage,
     addToImprove,
     addToGoingWell,
+    addToTriage,
   }] = useGlobalState();
 
   function handleThumbsUpClick(item) {
@@ -23,14 +25,6 @@ export default function Triage() {
     addToImprove(item);
   }
 
-  function handleDragLeave(event) {
-    if (!event.target.className.includes('Triage')) {
-      return;
-    }
-
-    removeFromTriage(getDraggedItem(event));
-  }
-
   const cards = triage.map((item, index) => (
     <DragCard key={index} item={item}>
       <ThumbsUpButton handleClick={() => handleThumbsUpClick(item)}/>
@@ -38,9 +32,9 @@ export default function Triage() {
     </DragCard>
   ));
 
-  return <div className='Triage' onDragLeave={handleDragLeave}>{cards}</div>;
-}
-
-function getDraggedItem({ dataTransfer }) {
-  return JSON.parse(dataTransfer.getData('drag-item'));
+  return (
+    <DropTarget handlers={{ add: addToTriage, remove: removeFromTriage, }}>
+      <div className='Triage'>{cards}</div>
+    </DropTarget>
+  );
 }

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import Drag from "../../common/components/Drag";
 import BugCard from "../BugCard/BugCard";
 
