@@ -1,7 +1,7 @@
 import { useGlobalState } from '../../common/hooks/useGlobalState';
 import BugCard from '../BugCard/BugCard';
+import Modal from '../../common/components/Modal';
 import Button from '../../common/components/Button';
-import './BugModal.css';
 
 export default function BugModal() {
   const [{
@@ -22,10 +22,5 @@ export default function BugModal() {
     </BugCard>
   ));
 
-  if (!modalList.length) return null;
-
-  return (
-    <div className='BugModal'>
-      <div className='BugModal-content'>{cards}</div>
-    </div>);
+  return <Modal>{cards}</Modal>;
 }

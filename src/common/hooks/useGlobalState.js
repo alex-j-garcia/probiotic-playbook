@@ -15,10 +15,15 @@ const reducer = function (state, { type, payload }) {
         ...state,
         triage: state.triage.filter(({ name }) => name !== payload.name),
       };
-    case 'TOGGLE_MODAL':
+    case 'SHOW_OVERLAY':
       return {
         ...state,
-        modalIsVisible: !state.modalIsVisible,
+        modalIsVisible: true,
+      };
+    case 'HIDE_OVERLAY':
+      return {
+        ...state,
+        modalIsVisible: false,
       };
     case 'ADD_TO_IMPROVE':
       return {
@@ -60,6 +65,11 @@ const reducer = function (state, { type, payload }) {
         ...state,
         dragTarget: null,
       }
+    case 'SET_OVERLAY_CHILD':
+      return {
+        ...state,
+        overlayChild: payload,
+      };
     default:
       return state;
   }
@@ -73,6 +83,7 @@ const initialState = {
   goingWell: [],
   inProgress: [],
   dragTarget: null,
+  overlayChild: null,
 };
 
 function StateContextProvider({ children }) {
@@ -84,8 +95,10 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
     removeFromTriage: (item) =>
       dispatch({ type: 'REMOVE_FROM_TRIAGE', payload: item }),
-    toggleIsVisible: () =>
-      dispatch({ type: 'TOGGLE_MODAL' }),
+    showOverlay: () =>
+      dispatch({ type: 'SHOW_OVERLAY', }),
+    hideOverlay: () =>
+      dispatch({ type: 'HIDE_OVERLAY', }),
     removeFromModalList: (item) =>
       setData(prevData => prevData.filter(element => element.id !== item.id)),
     addToImprove: (item) => {
@@ -123,8 +136,10 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'REMOVE_FROM_IN_PROGRESS', payload: item }),
     addDragTarget: (item) =>
       dispatch({ type: 'ADD_DRAG_TARGET', payload: item }),
-    removeDragTarget: (item) =>
+    removeDragTarget: () =>
       dispatch({ type: 'REMOVE_DRAG_TARGET', }),
+    setOverlayChild: (componentName) =>
+      dispatch({ type: 'SET_OVERLAY_CHILD', payload: componentName }),
   };
 
   return (
