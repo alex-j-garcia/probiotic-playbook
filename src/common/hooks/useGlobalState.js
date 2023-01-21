@@ -70,6 +70,11 @@ const reducer = function (state, { type, payload }) {
         ...state,
         modalContent: payload,
       };
+    case 'SET_BUG_DETAILS_CONTENT':
+      return {
+        ...state,
+        bugDetailsContent: payload,
+      };
     default:
       return state;
   }
@@ -84,6 +89,7 @@ const initialState = {
   inProgress: [],
   dragTarget: null,
   modalContent: null,
+  bugDetailsContent: null,
 };
 
 function StateContextProvider({ children }) {
@@ -140,6 +146,8 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'REMOVE_DRAG_TARGET', }),
     setModalContent: (componentName) =>
       dispatch({ type: 'SET_MODAL_CONTENT', payload: componentName }),
+    setBugDetailsContent: (item) =>
+      dispatch({ type: 'SET_BUG_DETAILS_CONTENT', payload: item }),
   };
 
   return (
