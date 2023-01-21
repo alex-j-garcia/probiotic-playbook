@@ -3,11 +3,11 @@ import Header from '../../common/components/Header';
 import Button from '../../common/components/Button';
 
 export default function DashboardHeader() {
-  const [, { showOverlay, setOverlayChild }] = useGlobalState();
+  const [, { showOverlay, setModalContent, }] = useGlobalState();
 
   function handleClick() {
     showOverlay();
-    setOverlayChild('bugModal');
+    setModalContent('bugCardList');
   }
 
   return (

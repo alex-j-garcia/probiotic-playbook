@@ -1,9 +1,9 @@
 import { useGlobalState } from '../../common/hooks/useGlobalState';
 import BugCard from '../BugCard/BugCard';
-import Modal from '../../common/components/Modal';
+import List from '../../common/components/List';
 import Button from '../../common/components/Button';
 
-export default function BugModal() {
+export default function BugCardList() {
   const [{
     modalList
   }, {
@@ -22,5 +22,5 @@ export default function BugModal() {
     </BugCard>
   ));
 
-  return <Modal>{cards}</Modal>;
+  return <List list={cards} />;
 }

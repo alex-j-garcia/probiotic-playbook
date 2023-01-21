@@ -18,12 +18,12 @@ const reducer = function (state, { type, payload }) {
     case 'SHOW_OVERLAY':
       return {
         ...state,
-        modalIsVisible: true,
+        overlayIsVisible: true,
       };
     case 'HIDE_OVERLAY':
       return {
         ...state,
-        modalIsVisible: false,
+        overlayIsVisible: false,
       };
     case 'ADD_TO_IMPROVE':
       return {
@@ -65,10 +65,10 @@ const reducer = function (state, { type, payload }) {
         ...state,
         dragTarget: null,
       }
-    case 'SET_OVERLAY_CHILD':
+    case 'SET_MODAL_CONTENT':
       return {
         ...state,
-        overlayChild: payload,
+        modalContent: payload,
       };
     default:
       return state;
@@ -76,14 +76,14 @@ const reducer = function (state, { type, payload }) {
 }
 
 const initialState = {
-  modalIsVisible: false,
+  overlayIsVisible: false,
   triage: [],
   bugBoard: [],
   toImprove: [],
   goingWell: [],
   inProgress: [],
   dragTarget: null,
-  overlayChild: null,
+  modalContent: null,
 };
 
 function StateContextProvider({ children }) {
@@ -138,8 +138,8 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'ADD_DRAG_TARGET', payload: item }),
     removeDragTarget: () =>
       dispatch({ type: 'REMOVE_DRAG_TARGET', }),
-    setOverlayChild: (componentName) =>
-      dispatch({ type: 'SET_OVERLAY_CHILD', payload: componentName }),
+    setModalContent: (componentName) =>
+      dispatch({ type: 'SET_MODAL_CONTENT', payload: componentName }),
   };
 
   return (

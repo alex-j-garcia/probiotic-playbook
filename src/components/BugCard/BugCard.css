@@ -7,7 +7,7 @@
   background-color: hsl(0, 0%, 97%);
   font-size: 14px;
   color: hsl(0, 0%, 4%);
-  cursor: default;
+  cursor: pointer;
   text-align: left;
 }
 
