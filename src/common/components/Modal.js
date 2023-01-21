@@ -1,6 +1,6 @@
 import { useGlobalState } from '../hooks/useGlobalState';
-import BugCardList from '../../components/BugCardList/BugCardList';
 import BugDetails from '../../components/BugDetails/BugDetails';
+import BugCardList from '../../components/BugCardList/BugCardList';
 
 export default function Modal() {
   const [{ modalContent, }] = useGlobalState();
@@ -11,7 +11,8 @@ export default function Modal() {
       <div className='Modal-content'>
         <Component />
       </div>
-    </div>);
+    </div>
+  );
 }
 
 const OverlayComponents = {

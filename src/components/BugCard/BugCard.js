@@ -15,8 +15,8 @@ export default function BugCard({ item, children, }) {
       return;
     }
     showOverlay();
-    setModalContent('bugDetails');
     setBugDetailsContent(item);
+    setModalContent('bugDetails');
   }
 
   return (
