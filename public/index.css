@@ -83,3 +83,10 @@ button {
   background-color: hsl(0, 100%, 75%);
   box-shadow: inset 0 0 0 1px hsl(0, 100%, 55%);
 }
+
+.Modal {
+  padding: 10px;
+  border-radius: 10px;
+
+  background-color: white;
+}
