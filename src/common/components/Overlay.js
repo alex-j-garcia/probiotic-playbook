@@ -6,14 +6,29 @@ import Button from './Button';
 export default function Overlay() {
   const [{ overlayIsVisible, }, { hideOverlay, }] = useGlobalState();
 
+  function handleClick({ target }) {
+    if (!isOverlayOrButton(target)) {
+      return;
+    }
+    hideOverlay();
+  }
+
   if (!overlayIsVisible) return null;
 
   return (
-    <div className='Overlay'>
+    <div className='Overlay asd' onClick={handleClick}>
       <Header>
-        <Button handleClick={hideOverlay}>X</Button>
+        <Button className='Overlay-close'>X</Button>
       </Header>
       <Modal />
     </div>
   );
+}
+
+function isOverlayOrButton({ className }) {
+  className = className.toLowerCase();
+  if (className.includes('overlay') || className.includes('overlay-close')) {
+    return true;
+  }
+  return false;
 }
