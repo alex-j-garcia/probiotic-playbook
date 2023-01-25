@@ -16,7 +16,7 @@ export default function Overlay() {
   if (!overlayIsVisible) return null;
 
   return (
-    <div className='Overlay asd' onClick={handleClick}>
+    <div className='Overlay' onClick={handleClick}>
       <Header>
         <Button className='Overlay-close'>X</Button>
       </Header>

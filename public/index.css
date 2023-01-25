@@ -18,19 +18,20 @@ button {
 }
 
 .Overlay {
-  position: fixed; /* Positioning and size */
+  /* Positioning and size */
+  position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(128,128,128,0.5); /* color */
 
+  background-color: rgba(128,128,128,0.5);
   font-family: sans-serif;
 }
 
 .Overlay > header {
   text-align: right;
-  /* color: white; */
   font-size: 18px;
   padding: 5px;
 }
@@ -71,7 +72,8 @@ button {
   border: none;
   background: none;
   border-radius: 3px;
-  padding-top: 5px;
+  padding: 5px 3px;
+  margin-right: 5px;
 }
 
 .ThumbsButton--up:hover {
@@ -89,4 +91,30 @@ button {
   border-radius: 10px;
 
   background-color: white;
+}
+
+.button-and-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+[role='tooltip'] {
+  display: none;
+}
+
+button:hover + [role='tooltip'],
+button:focus + [role='tooltip'],
+.BugCard:hover [role='tooltip'] {
+  position: absolute;
+  display: block;
+  min-width: 80px;
+  left: 50%;
+  margin-left: -40px;
+  border-radius: 3px;
+  white-space: nowrap;
+  padding: 1px 5px;
+
+  text-align: center;
+  background: grey;
+  color: white;
 }

@@ -1,12 +1,17 @@
 import Button from './Button';
+import Tooltip from './Tooltip';
 
 export default function ThumbsUpButton({ handleClick }) {
   return (
-    <Button
-      className='ThumbsButton ThumbsButton--up'
-      handleClick={handleClick}
-    >
-      👍
-    </Button>
+    <div className='button-and-tooltip'>
+      <Button
+        handleClick={handleClick}
+        className='ThumbsButton ThumbsButton--up'
+        accessibilityOpts={{ 'aria-labelledby': 'thumbs-up-label' }}
+      >
+        👍
+      </Button>
+      <Tooltip associatedEl='thumbs-up' text='going well' />
+    </div>
   );
 }
