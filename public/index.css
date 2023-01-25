@@ -103,8 +103,7 @@ button {
 }
 
 button:hover + [role='tooltip'],
-button:focus + [role='tooltip'],
-.BugCard:hover [role='tooltip'] {
+button:focus + [role='tooltip'] {
   position: absolute;
   display: block;
   min-width: 80px;
