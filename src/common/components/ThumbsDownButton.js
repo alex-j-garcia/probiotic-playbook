@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import Button from './Button';
 import Tooltip from './Tooltip';
+import Button from './ForwardRefButton';
 
 export default function ThumbsDownButton({ handleClick }) {
   const ref = useRef(null);
@@ -9,7 +9,7 @@ export default function ThumbsDownButton({ handleClick }) {
     handleClick();
     ref.current.blur();
   }
-  
+
   return (
     <div className='button-and-tooltip'>
       <Button

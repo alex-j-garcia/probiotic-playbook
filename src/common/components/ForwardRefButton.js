@@ -1,11 +1,14 @@
-export default function Button({
+import { forwardRef } from "react";
+
+const Button = forwardRef(function Button({
   children,
   className,
   handleClick,
-  accessibilityOpts,
-}) {
+  accessibilityOpts
+}, ref) {
   return (
     <button
+      ref={ref ? ref : null}
       onClick={handleClick}
       className={className}
       {...accessibilityOpts}
@@ -13,4 +16,6 @@ export default function Button({
       {children}
     </button>
   );
-}
+});
+
+export default Button;

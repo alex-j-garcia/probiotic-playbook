@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import Button from './Button';
 import Tooltip from './Tooltip';
+import Button from './ForwardRefButton';
 
 export default function ThumbsUpButton({ handleClick }) {
   const ref = useRef(null);
