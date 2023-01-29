@@ -15,16 +15,6 @@ const reducer = function (state, { type, payload }) {
         ...state,
         triage: state.triage.filter(({ name }) => name !== payload.name),
       };
-    case 'SHOW_OVERLAY':
-      return {
-        ...state,
-        overlayIsVisible: true,
-      };
-    case 'HIDE_OVERLAY':
-      return {
-        ...state,
-        overlayIsVisible: false,
-      };
     case 'ADD_TO_IMPROVE':
       return {
         ...state,
@@ -68,7 +58,12 @@ const reducer = function (state, { type, payload }) {
     case 'SET_MODAL_CONTENT':
       return {
         ...state,
-        modalContent: payload,
+        modalContent: [...state.modalContent, payload],
+      };
+    case 'REMOVE_MODAL_CONTENT':
+      return {
+        ...state,
+        modalContent: [...state.modalContent].slice(0, state.modalContent.length - 1),
       };
     case 'SET_BUG_DETAILS_CONTENT':
       return {
@@ -88,7 +83,7 @@ const initialState = {
   goingWell: [],
   inProgress: [],
   dragTarget: null,
-  modalContent: null,
+  modalContent: [],
   bugDetailsContent: null,
 };
 
@@ -97,14 +92,10 @@ function StateContextProvider({ children }) {
   const [data, setData] = useJsonData();
 
   const handlers = {
-    addToTriage: (item) =>
-      dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
+    addToTriage: (item) => dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
     removeFromTriage: (item) =>
       dispatch({ type: 'REMOVE_FROM_TRIAGE', payload: item }),
-    showOverlay: () =>
-      dispatch({ type: 'SHOW_OVERLAY', }),
-    hideOverlay: () =>
-      dispatch({ type: 'HIDE_OVERLAY', }),
+    removeModalContent: () => dispatch({ type: 'REMOVE_MODAL_CONTENT', }),
     removeFromModalList: (item) =>
       setData(prevData => prevData.filter(element => element.id !== item.id)),
     addToImprove: (item) => {
@@ -142,8 +133,7 @@ function StateContextProvider({ children }) {
       dispatch({ type: 'REMOVE_FROM_IN_PROGRESS', payload: item }),
     addDragTarget: (item) =>
       dispatch({ type: 'ADD_DRAG_TARGET', payload: item }),
-    removeDragTarget: () =>
-      dispatch({ type: 'REMOVE_DRAG_TARGET', }),
+    removeDragTarget: () => dispatch({ type: 'REMOVE_DRAG_TARGET', }),
     setModalContent: (componentName) =>
       dispatch({ type: 'SET_MODAL_CONTENT', payload: componentName }),
     setBugDetailsContent: (item) =>

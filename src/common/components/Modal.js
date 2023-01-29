@@ -4,7 +4,10 @@ import BugCardList from '../../components/BugCardList/BugCardList';
 
 export default function Modal() {
   const [{ modalContent, }] = useGlobalState();
-  const Component = OverlayComponents[modalContent];
+  const lastElement = [...modalContent].pop();
+  const Component = OverlayComponents[lastElement];
+
+  if (!lastElement) return null;
 
   return (
     <div className='Modal'>

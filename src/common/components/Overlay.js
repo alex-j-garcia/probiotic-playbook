@@ -4,16 +4,20 @@ import Header from './Header';
 import Button from './Button';
 
 export default function Overlay() {
-  const [{ overlayIsVisible, }, { hideOverlay, }] = useGlobalState();
+  const [{
+    modalContent,
+  }, {
+    removeModalContent,
+  }] = useGlobalState();
 
   function handleClick({ target }) {
     if (!isOverlayOrButton(target)) {
       return;
     }
-    hideOverlay();
+    removeModalContent();
   }
 
-  if (!overlayIsVisible) return null;
+  if (!modalContent.length) return null;
 
   return (
     <div className='Overlay' onClick={handleClick}>

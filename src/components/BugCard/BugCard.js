@@ -5,7 +5,7 @@ import './BugCard.css';
 
 export default function BugCard({ item, children, }) {
   const [ ,
-    { setModalContent, showOverlay, setBugDetailsContent, }
+    { setModalContent, setBugDetailsContent, }
   ] = useGlobalState();
   const { name, type } = item;
   const clientWidth = useCalcTextWidth(name);
@@ -14,7 +14,6 @@ export default function BugCard({ item, children, }) {
     if (target.nodeName === 'button'.toUpperCase()) {
       return;
     }
-    showOverlay();
     setBugDetailsContent(item);
     setModalContent('bugDetails');
   }
