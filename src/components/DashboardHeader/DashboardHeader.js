@@ -5,13 +5,13 @@ import Button from '../../common/components/Button';
 export default function DashboardHeader() {
   const [, { setModalContent, }] = useGlobalState();
 
-  function handleClick() {
-    setModalContent('bugCardList');
-  }
-
   return (
     <Header>
-      <Button handleClick={handleClick}>Add a 🐛</Button>
+      <Button handleClick={() => {
+        setModalContent('bugCardList')
+      }}>
+        Add a 🐛
+      </Button>
     </Header>
   );
 }

@@ -4,9 +4,7 @@ import Badge from '../../common/components/Badge';
 import './BugCard.css';
 
 export default function BugCard({ item, children, }) {
-  const [ ,
-    { setModalContent, setBugDetailsContent, }
-  ] = useGlobalState();
+  const [ , { setModalContent, setBugDetailsContent, } ] = useGlobalState();
   const { name, type } = item;
   const clientWidth = useCalcTextWidth(name);
 

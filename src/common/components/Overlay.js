@@ -4,11 +4,7 @@ import Header from './Header';
 import Button from './Button';
 
 export default function Overlay() {
-  const [{
-    modalContent,
-  }, {
-    removeModalContent,
-  }] = useGlobalState();
+  const [{ modalContent, }, { removeModalContent, }] = useGlobalState();
 
   function handleClick({ target }) {
     if (!isOverlayOrButton(target)) {
