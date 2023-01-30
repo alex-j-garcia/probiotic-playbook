@@ -93,22 +93,27 @@ button {
   background-color: white;
 }
 
-.button-and-tooltip {
-  position: relative;
+.ThumbsButton-container {
   display: inline-block;
+}
+
+.Tooltip-container {
+  position: relative;
+  display: block;
 }
 
 [role='tooltip'] {
   display: none;
 }
 
-button:hover + [role='tooltip'],
-button:focus + [role='tooltip'] {
+button:hover + .Tooltip-container > [role='tooltip'],
+button:focus + .Tooltip-container > [role='tooltip'],
+span:hover + .Tooltip-container > [role='tooltip'] {
   position: absolute;
+  top: -40px;
+  left: -10px;
   display: block;
   min-width: 80px;
-  left: 50%;
-  margin-left: -40px;
   border-radius: 3px;
   white-space: nowrap;
   padding: 1px 5px;

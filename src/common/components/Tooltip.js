@@ -1,7 +1,7 @@
 export default function Tooltip({ associatedEl, text }) {
   return (
-    <div role='tooltip' id={`${associatedEl}-label`}>
-      {capitalizeFirstLetter(text)}
+    <div className='Tooltip-container'>
+      <div role='tooltip' id={associatedEl}>{capitalizeFirstLetter(text)}</div>
     </div>
   );
 }

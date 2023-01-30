@@ -11,7 +11,7 @@ export default function ThumbsDownButton({ handleClick }) {
   }
 
   return (
-    <div className='button-and-tooltip'>
+    <div className='ThumbsButton-container'>
       <Button
         ref={ref}
         className='ThumbsButton ThumbsButton--down'
@@ -20,7 +20,7 @@ export default function ThumbsDownButton({ handleClick }) {
       >
         👎
       </Button>
-      <Tooltip associatedEl='thumbs-down' text='to improve' />
+      <Tooltip associatedEl='thumbs-down-label' text='to improve' />
     </div>
   );
 }

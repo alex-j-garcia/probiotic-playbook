@@ -11,7 +11,7 @@ export default function ThumbsUpButton({ handleClick }) {
   }
 
   return (
-    <div className='button-and-tooltip'>
+    <div className='ThumbsButton-container'>
       <Button
         ref={ref}
         className='ThumbsButton ThumbsButton--up'
@@ -20,7 +20,7 @@ export default function ThumbsUpButton({ handleClick }) {
       >
         👍
       </Button>
-      <Tooltip associatedEl='thumbs-up' text='going well' />
+      <Tooltip associatedEl='thumbs-up-label' text='going well' />
     </div>
   );
 }
