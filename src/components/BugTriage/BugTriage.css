@@ -1,12 +1,22 @@
-.Triage {
-  display: flex;
-  min-height: 118px;
-  padding: 10px;
+.BugTriage {
   overflow-x: auto;
   border-top: 1px solid hsla(0, 0%, 0%, 0.4);
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.4);
 }
 
-.Triage .BugCard {
-  margin: 0 5px;
+.BugTriage header {
+  margin-bottom: 10px;
+}
+
+.BugTriage-content {
+  display: flex;
+  min-height: 118px;
+}
+
+.BugTriage-content .BugCard {
+  margin: 0 7px;
+}
+
+.BugTriage-content .BugCard:first-child {
+  margin-left: 14px;
 }

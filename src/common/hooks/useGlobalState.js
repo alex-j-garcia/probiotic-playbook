@@ -92,35 +92,34 @@ function StateContextProvider({ children }) {
   const [data, setData] = useJsonData();
 
   const handlers = {
-    addToTriage: (item) => dispatch({ type: 'ADD_TO_TRIAGE', payload: item }),
+    addToTriage: (item) => {
+      const doesExist = state.triage.some(
+        element => element.id === item.id
+      );
+      if (doesExist) {
+        return;
+      }
+      dispatch({ type: 'ADD_TO_TRIAGE', payload: item });
+    },
     removeFromTriage: (item) =>
       dispatch({ type: 'REMOVE_FROM_TRIAGE', payload: item }),
     removeModalContent: () => dispatch({ type: 'REMOVE_MODAL_CONTENT', }),
     removeFromModalList: (item) =>
       setData(prevData => prevData.filter(element => element.id !== item.id)),
     addToImprove: (item) => {
-      const doesExist = state.toImprove.some(
-        element => element.id === item.id
-      );
-      if (doesExist) {
+      if (doesExist(state.toImprove, item)) {
         return;
       }
       dispatch({ type: 'ADD_TO_IMPROVE', payload: item });
     },
     addToGoingWell: (item) => {
-      const doesExist = state.goingWell.some(
-        element => element.id === item.id
-      );
-      if (doesExist) {
+      if (doesExist(state.goingWell, item)) {
         return;
       }
       dispatch({ type: 'ADD_TO_GOING_WELL', payload: item });
     },
     addToInProgress: (item) => {
-      const doesExist = state.inProgress.some(
-        element => element.id === item.id
-      );
-      if (doesExist) {
+      if (doesExist(state.inProgress, item)) {
         return;
       }
       dispatch({ type: 'ADD_TO_IN_PROGRESS', payload: item });
@@ -151,6 +150,10 @@ function StateContextProvider({ children }) {
       {children}
     </StateContext.Provider>
   );
+}
+
+function doesExist(stateArray, target) {
+  return stateArray.some(item => item.id === target.id);
 }
 
 function useGlobalState() {
