@@ -122,3 +122,7 @@ span:hover + .Tooltip-container > [role='tooltip'] {
   background: grey;
   color: white;
 }
+
+div[draggable] {
+  display: inline-block;
+}
