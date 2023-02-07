@@ -1,10 +1,9 @@
 .BugBoard {
   display: flex;
-  justify-content: space-between;
   min-height: 450px;
 }
 
-.BugBoard > div {
+.BugBoard > .DropTarget {
   flex: 1;
-  padding: 10px;
+  max-width: 320px;
 }

@@ -10,7 +10,9 @@ Column.propTypes = {
 export default function Column({ name, list = [], }) {
   return (
     <div className='Column'>
-      <h4>{name}</h4>
+      <h4 className='Column-title'>{name}
+        <span>{`(${list.length})`}</span>
+      </h4>
       <DragCardList list={list} />
     </div>
   );
