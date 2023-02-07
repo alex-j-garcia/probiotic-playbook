@@ -1,26 +1,27 @@
 .Column {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
+  min-height: 120px;
   border-radius: 10px;
 
   text-align: center;
 }
 
-.DropTarget:first-child .Column:hover {
+.Column > ul {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.DropTarget:first-child .Column {
   background-color: hsla(5, 100%, 95%, 0.6);
 }
 
-.DropTarget:nth-child(2) .Column:hover {
+.DropTarget:nth-child(2) .Column {
   background-color: hsla(39, 100%, 95%, 0.6);
 }
 
-.DropTarget:last-child .Column:hover {  
+.DropTarget:last-child .Column {
   background-color: hsla(115, 100%, 95%, 0.6);
 }
 
 .Column .BugCard {
-  margin: 10px 0;
+  margin: 5px 0;
 }
