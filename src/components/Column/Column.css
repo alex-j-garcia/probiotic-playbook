@@ -23,17 +23,17 @@
   padding: 0;
 }
 
-.DropTarget:first-child .Column {
+.BugBoard .DropTarget:first-child .Column {
   background-color: hsla(314.6, 66.6%, 77.7%, 0.7);
   margin-left: 14px;
 }
 
-.DropTarget:nth-child(2) .Column {
+.BugBoard .DropTarget:nth-child(2) .Column {
   background-color: hsla(0, 0%, 89%, 0.7);
   margin: 14px 7px;
 }
 
-.DropTarget:last-child .Column {
+.BugBoard .DropTarget:last-child .Column {
   background-color: hsla(115, 66.6%, 77.7%, 0.7);
   margin-right: 14px;
 }

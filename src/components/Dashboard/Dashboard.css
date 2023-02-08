@@ -1,7 +1,9 @@
 .Dashboard {
   width: 95%;
   max-width: 1000px;
-  margin: 20px auto;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0 auto;
   border-radius: 4px;
   box-shadow: 0 0 8px -3px hsla(0, 0%, 0%, 0.5);
 }
