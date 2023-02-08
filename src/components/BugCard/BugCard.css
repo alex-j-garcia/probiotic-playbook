@@ -12,6 +12,7 @@
   text-align: left;
 }
 
+.Modal-content .BugCard,
 .Column .BugCard {
   width: 100%;
 }

@@ -1,5 +1,7 @@
 export default function List({ list, listStyle = 'none', }) {
-  const lis = list.map((item, index) => <li key={index}>{item}</li>);
+  const lis = list.map((item, index) => (
+    <li className='List-item' key={index}>{item}</li>
+  ));
 
-  return <ul style={{ listStyleType: listStyle }}>{lis}</ul>;
+  return <ul className='List' style={{ listStyleType: listStyle }}>{lis}</ul>;
 }
