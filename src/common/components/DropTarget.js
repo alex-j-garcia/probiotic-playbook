@@ -13,7 +13,8 @@ export default function DropTarget({ children, handlers, }) {
     event.preventDefault();
   };
 
-  const handleDrop = () => {
+  const handleDrop = (event) => {
+    event.stopPropagation();
     const droppedItem = dragTarget;
     if (droppedItem) {
       add(JSON.parse(droppedItem));
@@ -32,7 +33,7 @@ export default function DropTarget({ children, handlers, }) {
     <div
       onDrop={handleDrop}
       onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
+      onDragLeave={remove ? handleDragLeave : null}
       className='DropTarget'
     >
       {children}
