@@ -5,17 +5,12 @@ import OverlayHeader from './components/OverlayHeader';
 export default function Overlay() {
   const [{ modalContent, }, { removeModalContent, }] = useGlobalState();
 
-  function handleClick({ target }) {
-    if (!isOverlayOrButton(target)) {
-      return;
-    }
-    removeModalContent();
-  }
-
   if (!modalContent.length) return null;
 
   return (
-    <div className='Overlay' onClick={handleClick}>
+    <div
+      className='Overlay'
+      onClick={(e) => isOverlayOrButton(e.target) && removeModalContent()}>
       <OverlayHeader />
       <Modal />
     </div>
