@@ -10,17 +10,14 @@ export default function Overlay() {
   return (
     <div
       className='Overlay'
-      onClick={(e) => isOverlayOrButton(e.target) && removeModalContent()}>
+      onClick={(e) => isOverlayOrButton(e.target) && removeModalContent()}
+    >
       <OverlayHeader />
       <Modal />
     </div>
   );
 }
 
-function isOverlayOrButton({ className }) {
-  className = className.toLowerCase();
-  if (className.includes('overlay') || className.includes('overlay-close')) {
-    return true;
-  }
-  return false;
-}
+const isOverlayOrButton = ({ className }) => (
+  ['overlay', 'overlay-close'].includes(className.toLowerCase())
+);
