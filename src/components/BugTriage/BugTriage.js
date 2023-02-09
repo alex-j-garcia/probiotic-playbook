@@ -1,7 +1,7 @@
 import { useGlobalState } from '../../common/hooks/useGlobalState';
 import DragCard from '../DragCard/DragCard';
 import DropTarget from '../../common/components/DropTarget';
-import DashboardHeader from '../DashboardHeader/DashboardHeader';
+import TriageHeader from './components/TriageHeader';
 import ThumbsUpButton from '../../common/components/ThumbsUpButton';
 import ThumbsDownButton from '../../common/components/ThumbsDownButton';
 import './BugTriage.css';
@@ -36,7 +36,7 @@ export default function Triage() {
   return (
     <div className='BugTriage'>
       <DropTarget handlers={{ add: addToTriage, remove: removeFromTriage, }}>
-        <DashboardHeader />
+        <TriageHeader />
         <div className='BugTriage-content'>{cards}</div>
       </DropTarget>
     </div>
