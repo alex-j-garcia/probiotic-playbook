@@ -1,7 +1,6 @@
-import { useGlobalState } from '../hooks/useGlobalState';
-import Modal from './Modal';
-import Header from './Header';
-import Button from './Button';
+import { useGlobalState } from '../../common/hooks/useGlobalState';
+import Modal from '../../common/components/Modal';
+import OverlayHeader from './components/OverlayHeader';
 
 export default function Overlay() {
   const [{ modalContent, }, { removeModalContent, }] = useGlobalState();
@@ -17,9 +16,7 @@ export default function Overlay() {
 
   return (
     <div className='Overlay' onClick={handleClick}>
-      <Header>
-        <Button className='Overlay-close'>X</Button>
-      </Header>
+      <OverlayHeader />
       <Modal />
     </div>
   );

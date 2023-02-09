@@ -1,5 +1,5 @@
 import { StateContextProvider } from './common/hooks/useGlobalState';
-import Overlay from './common/components/Overlay';
+import Overlay from './components/Overlay/Overlay';
 import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
 
