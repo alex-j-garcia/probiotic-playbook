@@ -76,7 +76,6 @@ const reducer = function (state, { type, payload }) {
 }
 
 const initialState = {
-  overlayIsVisible: false,
   triage: [],
   bugBoard: [],
   toImprove: [],
