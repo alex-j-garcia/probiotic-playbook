@@ -87,7 +87,11 @@ const initialState = {
 };
 
 function StateContextProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(
+    reducer, JSON.parse(
+      localStorage.getItem('probiotic-playbook-state')
+    ) || initialState
+  );
   const [data, setData] = useJsonData();
 
   const handlers = {
